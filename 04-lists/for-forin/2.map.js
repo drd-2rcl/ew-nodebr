@@ -8,6 +8,7 @@ Array.prototype.meuMap = function (callback) {
   }
   return novoArrayMapeado;
 }
+
 async function main() {
   try {
     const results = await service.obterPessoas(`a`)
