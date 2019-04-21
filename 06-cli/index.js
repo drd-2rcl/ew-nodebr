@@ -8,6 +8,7 @@ async function main() {
     .option('-n, --nome [value]', "Nome do Heroi")
     .option('-p, --poder [value]', "Poder do Heroi")
     .option('-c, --cadastrar', "Cadastrar um heroi")
+    .option('-l, --listar', "Listar um heroi")
     .parse(process.argv)
     const heroi = new Heroi(Commander)
     
@@ -19,6 +20,11 @@ async function main() {
           return;
         }
         console.log('Heroi cadastrado com sucesso!')
+      }
+      if (Commander.listar) {
+        const resultado = await Database.listar()
+        console.log(resultado)
+        return;
       }
     } catch (error) {
       console.error('DEU RUIM', error)
